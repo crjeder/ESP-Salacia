@@ -110,27 +110,27 @@ switch:
   - platform: template
     name: "Switch 1"
       turn_on_action:
-      - output.turn_on: led_1
-    turn_off_action:
-      - output.turn_off: led_1
+        - output.turn_on: led_1
+      turn_off_action:
+        - output.turn_off: led_1
   - platform: template
     name: "Switch 2"
       turn_on_action:
-      - output.turn_on: led_2
-    turn_off_action:
-      - output.turn_off: led_2
+        - output.turn_on: led_2
+      turn_off_action:
+        - output.turn_off: led_2
   - platform: template
     name: "Switch 3"
       turn_on_action:
-      - output.turn_on: led_3
-    turn_off_action:
-      - output.turn_off: led_3
+        - output.turn_on: led_3
+      turn_off_action:
+        - output.turn_off: led_3
 - platform: template
     name: "Switch 4"
       turn_on_action:
-      - output.turn_on: led_4
-    turn_off_action:
-      - output.turn_off: led_4
+        - output.turn_on: led_4
+      turn_off_action:
+        - output.turn_off: led_4
 
 
 
