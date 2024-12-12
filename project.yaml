@@ -2,7 +2,8 @@ esphome:
   name: salacia
 
 esp32:
-  board: esp32doit-devkit-v1
+  # board: esp32doit-devkit-v1
+  board: node32s
   framework:
     type: arduino
 
@@ -29,6 +30,7 @@ captive_portal:
     
 web_server:
   port: 80 
+  version: 1
 text_sensor:
   - platform: wifi_info
     ip_address:
@@ -68,41 +70,63 @@ switch:
 # Twelve LED bar graph
 output:
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO36
+    id: led_1
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO39
+    id: led_2
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO34
+    id: led_3
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO35
+    id: led_4
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO32
+    id: led_5
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO33
+    id: led_6
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO25
+    id: led_7
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO27
+    id: led_8
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO14
+    id: led_9
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO14
+    id: led_10
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
+    pin: GPIO12
+    id: led_11
   - platform: gpio
-    pin: GPIOXX
-    id: gpio_d1
-        
+    pin: GPIO13
+    id: led_12
+
+switch:
+  - platform: template
+    name: "Switch 1"
+      turn_on_action:
+      - output.turn_on: led_1
+    turn_off_action:
+      - output.turn_off: led_1
+  - platform: template
+    name: "Switch 2"
+      turn_on_action:
+      - output.turn_on: led_2
+    turn_off_action:
+      - output.turn_off: led_2
+  - platform: template
+    name: "Switch 3"
+      turn_on_action:
+      - output.turn_on: led_3
+    turn_off_action:
+      - output.turn_off: led_3
+
+
+
       
       
