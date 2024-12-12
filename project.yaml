@@ -125,6 +125,12 @@ switch:
       - output.turn_on: led_3
     turn_off_action:
       - output.turn_off: led_3
+- platform: template
+    name: "Switch 4"
+      turn_on_action:
+      - output.turn_on: led_4
+    turn_off_action:
+      - output.turn_off: led_4
 
 
 
