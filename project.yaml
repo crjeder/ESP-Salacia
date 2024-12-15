@@ -131,8 +131,3 @@ switch:
         - output.turn_on: led_4
       turn_off_action:
         - output.turn_off: led_4
-
-
-
-      
-      
