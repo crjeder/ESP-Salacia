@@ -3,7 +3,7 @@ esphome:
 
 esp32:
   # board: esp32doit-devkit-v1
-  board: node32s
+  board: esp-wrover-kit
   framework:
     type: arduino
 
@@ -15,7 +15,8 @@ api:
   password: !secret api_password
 
 ota:
-  password: !secret ota_password
+  - platform: esphome
+    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -23,7 +24,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Rabbit-Hutch Fallback Hotspot"
+    ssid: "Fallback Hotspot"
     password: !secret hot_password
 
 captive_portal:
@@ -58,76 +59,60 @@ sensor:
 
 # two GPIO switches to read the status of the water level sensors
 switch:
-  - platform: gpio
-    pin:
-      number: GPIOXX
-      inverted: true
-  - platform: gpio
-    pin:
-      number: GPIOXX
-      inverted: true
+  - platform: template
+    name: "Switch 1"
+    turn_on_action:
+      - output.turn_on: led_1
+    turn_off_action:
+      - output.turn_off: led_1
+  - platform: template
+    name: "Switch 2"
+    turn_on_action:
+      - output.turn_on: led_2
+    turn_off_action:
+      - output.turn_off: led_2
+  - platform: template
+    name: "Switch 3"
+    turn_on_action:
+      - output.turn_on: led_3
+    turn_off_action:
+      - output.turn_off: led_3
+  - platform: template
+    name: "Switch 4"
+    turn_on_action:
+      - output.turn_on: led_4
+    turn_off_action:
+      - output.turn_off: led_4
 
 # Twelve LED bar graph
 output:
   - platform: gpio
-    pin: GPIO36
+    pin: GPIO27
     id: led_1
   - platform: gpio
-    pin: GPIO39
+    pin: GPIO26
     id: led_2
   - platform: gpio
-    pin: GPIO34
+    pin: GPIO25
     id: led_3
   - platform: gpio
-    pin: GPIO35
+    pin: GPIO33
     id: led_4
   - platform: gpio
     pin: GPIO32
     id: led_5
   - platform: gpio
-    pin: GPIO33
+    pin: GPIO10
     id: led_6
   - platform: gpio
-    pin: GPIO25
+    pin: GPIO9
     id: led_7
   - platform: gpio
-    pin: GPIO27
+    pin: GPIO13
     id: led_8
   - platform: gpio
-    pin: GPIO14
+    pin: GPIO12
     id: led_9
   - platform: gpio
     pin: GPIO14
     id: led_10
-  - platform: gpio
-    pin: GPIO12
-    id: led_11
-  - platform: gpio
-    pin: GPIO13
-    id: led_12
-
-switch:
-  - platform: template
-    name: "Switch 1"
-      turn_on_action:
-        - output.turn_on: led_1
-      turn_off_action:
-        - output.turn_off: led_1
-  - platform: template
-    name: "Switch 2"
-      turn_on_action:
-        - output.turn_on: led_2
-      turn_off_action:
-        - output.turn_off: led_2
-  - platform: template
-    name: "Switch 3"
-      turn_on_action:
-        - output.turn_on: led_3
-      turn_off_action:
-        - output.turn_off: led_3
-  - platform: template
-    name: "Switch 4"
-      turn_on_action:
-        - output.turn_on: led_4
-      turn_off_action:
-        - output.turn_off: led_4
