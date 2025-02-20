@@ -6,3 +6,6 @@ The ESP-Home sensor measures the level of salt in the water softener and alarms 
 # ToDo
 - Build the circuit
 - write the yaml
+
+# Links
+https://www.tindie.com/products/ErikLemcke/salt-sentry-water-softener-monitor/
